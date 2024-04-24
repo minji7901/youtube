@@ -1,0 +1,69 @@
+{
+  "kind": "youtube#videoListResponse",
+  "etag": "vvhAmtbNicW-x8ZLHD-uKx8qRBg",
+  "items": [
+    {
+      "kind": "youtube#video",
+      "etag": "InDxh5qZOpbrNdlrQBmlubOJenU",
+      "id": "8MofNRuTRRM",
+      "snippet": {
+        "publishedAt": "2024-03-09T15:00:00Z",
+        "channelId": "UC3IZKseVpdzPSBaWxBxundA",
+        "title": "V ‘FRI(END)S’ Official Teaser 1",
+        "description": "V 'FRI(END)S' \n📆 24. 03. 15. 1PM (KST) | 0AM (ET) Release\n💽 Pre-save & pre-order: https://ingrv.es/friends\n\n\nBIGHIT MUSIC. Rights are reserved selectively in the video. Unauthorized reproduction is a violation of applicable laws. Manufactured by BIGHIT MUSIC, Seoul, Korea.\n\n\nConnect with BTS:\nhttps://ibighit.com/bts\nhttp://twitter.com/BTS_bighit\nhttp://twitter.com/BTS_twt\nhttp://www.facebook.com/bangtan.official\nhttps://www.youtube.com/user/BANGTANTV\nhttp://instagram.com/BTS.bighitofficial\nhttps://www.tiktok.com/@bts_official_bighit\nhttps://weverse.onelink.me/qt3S/94808190\nhttps://www.weibo.com/BTSbighit\nhttp://btsblog.ibighit.com\n\n#V_FRIENDS #FRI_END_S #뷔 #V",
+        "thumbnails": {
+          "default": {
+            "url": "https://i.ytimg.com/vi/8MofNRuTRRM/default.jpg",
+            "width": 120,
+            "height": 90
+          },
+          "medium": {
+            "url": "https://i.ytimg.com/vi/8MofNRuTRRM/mqdefault.jpg",
+            "width": 320,
+            "height": 180
+          },
+          "high": {
+            "url": "https://i.ytimg.com/vi/8MofNRuTRRM/hqdefault.jpg",
+            "width": 480,
+            "height": 360
+          },
+          "standard": {
+            "url": "https://i.ytimg.com/vi/8MofNRuTRRM/sddefault.jpg",
+            "width": 640,
+            "height": 480
+          },
+          "maxres": {
+            "url": "https://i.ytimg.com/vi/8MofNRuTRRM/maxresdefault.jpg",
+            "width": 1280,
+            "height": 720
+          }
+        },
+        "channelTitle": "HYBE LABELS",
+        "tags": [
+          "HYBE",
+          "HYBE LABELS",
+          "하이브",
+          "하이브레이블즈",
+          "BTS",
+          "방탄소년단",
+          "뷔",
+          "BTS V",
+          "FRI(END)S",
+          "V FRIENDS"
+        ],
+        "categoryId": "10",
+        "liveBroadcastContent": "none",
+        "defaultLanguage": "ko",
+        "localized": {
+          "title": "V ‘FRI(END)S’ Official Teaser 1",
+          "description": "V 'FRI(END)S' \n📆 24. 03. 15. 1PM (KST) | 0AM (ET) Release\n💽 Pre-save & pre-order: https://ingrv.es/friends\n\n\nBIGHIT MUSIC. Rights are reserved selectively in the video. Unauthorized reproduction is a violation of applicable laws. Manufactured by BIGHIT MUSIC, Seoul, Korea.\n\n\nConnect with BTS:\nhttps://ibighit.com/bts\nhttp://twitter.com/BTS_bighit\nhttp://twitter.com/BTS_twt\nhttp://www.facebook.com/bangtan.official\nhttps://www.youtube.com/user/BANGTANTV\nhttp://instagram.com/BTS.bighitofficial\nhttps://www.tiktok.com/@bts_official_bighit\nhttps://weverse.onelink.me/qt3S/94808190\nhttps://www.weibo.com/BTSbighit\nhttp://btsblog.ibighit.com\n\n#V_FRIENDS #FRI_END_S #뷔 #V"
+        },
+        "defaultAudioLanguage": "en"
+      }
+    }
+  ],
+  "pageInfo": {
+    "totalResults": 1,
+    "resultsPerPage": 1
+  }
+}
