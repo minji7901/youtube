@@ -1,13 +1,25 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-export default function useKeyword() {
-  const { keyword } = useParams();
+const fetchDataFromResult = async (keyword) => {
+  const  {data} = await axios
+  .get('/data/result.json')
+  .then((res) => res.data.items)
+  return data;
+}
+const fetchDataFromPopular = async () => {
+  const  {data} = await axios
+  .get('/data/popular.json')
+  .then((res) => res.data.items)
+  return data;
+}
+
+export function useKeywordData(keyword) {
   if (keyword) {
-    axios.get("/data/result.json").then((res) => res.data.items);
+    const response = axios.get("/data/result.json").then((res) => res.data.items);
   } else {
-    axios.get("/data/popular.json").then((res) => res.data.items);
+    const response = axios.get("/data/popular.json").then((res) => res.data.items);
   }
   return <div></div>;
 }
