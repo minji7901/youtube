@@ -1,18 +1,18 @@
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import useFakeYoutube from "../hooks/useFakeYoutube";
 import { formatAgo } from "../util/date";
 import { useQuery } from "@tanstack/react-query";
 import useYoutube from "../hooks/useYoutube";
 
-export default function Main() {
+export default function VideoMain() {
   const navigate = useNavigate();
   const { keyword } = useParams();
   // const youtube = useFakeYoutube();
   const youtube = useYoutube();
   const { isLoading, error, data } = useQuery({
-    queryKey: ['videos', keyword], 
-    queryFn: () => youtube.popularSearch(keyword)
+    queryKey: keyword ? ['search', keyword] : ['popular'], 
+    queryFn: () => youtube.popularSearch(keyword),
+    staleTime: 1000 * 60 * 1
   });
 
   return (
@@ -23,12 +23,13 @@ export default function Main() {
         <li
           className="cursor-pointer" 
           onClick={()=>{
-          navigate(`/video/watch/${item.id}`,{state: {item}})}} 
+          navigate(`/video/watch/${item.id}`,{state: {videoId:item.id, channelId: item.snippet.channelId}})}} 
           key={item.id}
           >
           <img 
-            src={item.snippet.thumbnails.standard.url} 
             className="rounded-xl" 
+            src={item.snippet.thumbnails.high.url}
+            alt={item.snippet.title} 
           />
           <p className="pt-2 line-clamp-2">{item.snippet.title}</p>
           <p className="py-1 text-sm text-base-300">{item.snippet.channelTitle}</p>
