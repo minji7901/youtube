@@ -8,7 +8,14 @@ body {
   font-family: "Roboto", sans-serif, "Noto Sans KR", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #2c2c2e;
+  --dot-bg: #1a1a1a;
+  --dot-color: #584b01;
+  --dot-size: 1px;
+  --dot-space: 16px;
+	background:
+		linear-gradient(90deg, var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		linear-gradient(var(--dot-bg) calc(var(--dot-space) - var(--dot-size)), transparent 1%) center / var(--dot-space) var(--dot-space),
+		var(--dot-color);
 }
 
 code {
