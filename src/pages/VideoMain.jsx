@@ -7,7 +7,6 @@ import useYoutube from "../hooks/useYoutube";
 export default function VideoMain() {
   const navigate = useNavigate();
   const { keyword } = useParams();
-  // const youtube = useFakeYoutube();
   const youtube = useYoutube();
   const { isLoading, error, data } = useQuery({
     queryKey: keyword ? ['search', keyword] : ['popular'], 
