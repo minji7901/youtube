@@ -15,5 +15,5 @@ code {
 }
 
 #root {
-  @apply container mx-auto min-h-screen;
+  @apply container mx-auto min-h-screen max-[1028px]:p-5 max-[1028px]:pt-0;
 }

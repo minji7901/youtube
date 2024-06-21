@@ -2,8 +2,8 @@ import useYoutubeServer from "./useYoutubeServer";
 import useFakeYoutube from "./useFakeYoutube";
 
 export default function useYoutube() {
-  // const {search, videos, channel} = useYoutubeServer();
-  const {search, videos, channel} = useFakeYoutube();
+  const {search, videos, channel} = useYoutubeServer();
+  // const {search, videos, channel} = useFakeYoutube();
 
   const searchVideo = async (keyword) => {
     return keyword ? searchByKeyword(keyword) : popularVideo();
@@ -15,20 +15,21 @@ export default function useYoutube() {
         part: 'snippet',
         maxResults: 25,
         type: 'video',
-        q: keyword,
+        q: `${keyword} onepiece`
       },
     })
     return res.data.items.map((item) => ({ ...item, id: item.id.videoId }))
   }
   const popularVideo = async () => {
-    const res = await videos({
+    const res = await search({
       params: {
         part: 'snippet',
         maxResults: 25,
-        chart: 'mostPopular',
+        type: 'video',
+        q: "onepiece",
       },
     })
-    return res.data.items;
+    return res.data.items.map((item) => ({ ...item, id: item.id.videoId }))
   };
 
   const detailVideo = async (videoId) => {

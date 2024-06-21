@@ -21,10 +21,10 @@ export default function Header() {
   }, [keyword])
   
   return (
-    <header className="flex items-center pt-2 pb-4">
-      <Link to="/" className="flex items-center gap-2">
+    <header className="flex items-center pt-2 pb-4 gap-2 sticky top-0 bg-white">
+      <Link to="/" className="flex items-center gap-2 lg:min-w-32">
         <img src={logo} className="w-10" alt="logo"/>
-        <span className="text-xl font-bold">OneTube</span>
+        <span className="text-xl font-bold max-[1028px]:hidden">OneTube</span>
       </Link>
       <form
         className="flex items-center justify-between gap-2 px-5 py-2 w-full max-w-[600px] mx-auto border border-base rounded-full"
