@@ -1,89 +1,60 @@
-import axios from "axios";
+import useYoutubeServer from "./useYoutubeServer";
+import useFakeYoutube from "./useFakeYoutube";
 
 export default function useYoutube() {
-  const apiKey = process.env.REACT_APP_YOUTUBE_API_KEY;
+  // const {search, videos, channel} = useYoutubeServer();
+  const {search, videos, channel} = useFakeYoutube();
 
-  if (!apiKey) {
-    console.error("YOUTUBE_API_KEY is not defined in the environment variables");
-    return;
-  }
-
-  const httpClient = axios.create({
-    baseURL: 'https://youtube.googleapis.com/youtube/v3',
-  });
-
-  const popularSearch = async (keyword) => {
-    return keyword ? search(keyword) : popular();
+  const searchVideo = async (keyword) => {
+    return keyword ? searchByKeyword(keyword) : popularVideo();
   };
 
-  const search = async (keyword) => {
-    const response = await httpClient.get('search', {
+  const searchByKeyword = async (keyword) => {
+    const res = await search({
       params: {
         part: 'snippet',
         maxResults: 25,
         type: 'video',
         q: keyword,
-        key: apiKey
-      }
-    });
-    return response.data.items.map(item => ({
-      ...item,
-      id: item.id.videoId
-    }));
-  };
-
-  const popular = async () => {
-    const response = await httpClient.get('videos', {
+      },
+    })
+    return res.data.items.map((item) => ({ ...item, id: item.id.videoId }))
+  }
+  const popularVideo = async () => {
+    const res = await videos({
       params: {
         part: 'snippet',
         maxResults: 25,
         chart: 'mostPopular',
-        key: apiKey
-      }
-    });
-    return response.data.items;
+      },
+    })
+    return res.data.items;
   };
 
-  const detail = async (videoId) => {
-    const response = await httpClient.get('videos', {
+  const detailVideo = async (videoId) => {
+    const res = await videos({
       params: {
         part: 'snippet',
         id: videoId,
-        key: apiKey
       }
     });
-    return response.data.items[0];
+    return res.data.items[0];
   };
 
-  const channel = async (channelId) => {
-    const response = await httpClient.get('channels', {
-      params: {
-        part: 'snippet',
-        id: channelId,
-        key: apiKey
+  const channelVideo = async (id) => {
+    const res = await channel({
+      params: { 
+        part: 'snippet', 
+        id
       }
     });
-    return response.data.items;
-  };
-
-  const channelVideo = async (channelId) => {
-    const response = await httpClient.get('search',{
-      params: {
-        part: 'snippet',
-        type: 'video',
-        channelId,
-        key: apiKey
-      }
-    });
-    return response.data.items;
+    return res.data.items[0].snippet.thumbnails.default.url;
   }
 
   return {
-    popularSearch,
-    search,
-    popular,
-    detail,
-    channel,
-    channelVideo
+    searchVideo,
+    detailVideo,
+    popularVideo,
+    channelVideo,
   };
 }

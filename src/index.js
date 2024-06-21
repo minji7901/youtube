@@ -5,8 +5,8 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import NotFound from "./pages/NotFound";
-import VideoMain from "./pages/VideoMain";
-import VideoCont from "./pages/VideoCont"
+import Main from "./pages/Main";
+import Cont from "./pages/Cont"
 
 const router = createBrowserRouter([
   {
@@ -16,19 +16,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <VideoMain />,
+        element: <Main />,
       },
       {
         path: "video",
-        element: <VideoMain />,
+        element: <Main />,
       },
       {
         path: "video/:keyword",
-        element: <VideoMain />,
+        element: <Main />,
       },
       {
         path: "video/watch/:videoId",
-        element: <VideoCont />,
+        element: <Cont />,
       },
     ],
   },
